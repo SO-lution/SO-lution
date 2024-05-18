@@ -35,6 +35,12 @@
             max-height: 35px; /* Adjust the height as needed */
          }
       </style>
+      <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+      <script type="text/javascript">
+          (function() {
+              emailjs.init('YOUR_USER_ID');
+          })();
+      </script>
    </head>
    <!-- body -->
    <body class="main-layout">
@@ -246,31 +252,31 @@
       <!-- contact -->
       <div id="contact" class="contact">
          <div class="container">
-            <div class="row">
-               <div class="col-md-6 offset-md-3 ">
-                  <form class="main_form">
-                     <div class="row">
-                        <div class="col-sm-12">
-                           <input class="contactus" placeholder="Name" type="text" name="Name">
-                        </div>
-                        <div class="col-sm-12">
-                           <input class="contactus" placeholder="Email" type="text" name=" Email">
-                        </div>
-                        <div class="col-sm-12">
-                           <input class="contactus" placeholder="Rufnummer" type="text" name="Rufnummer">
-                        </div>
-                        <div class="col-sm-12">
-                           <textarea class="textarea" placeholder="Nachrichtung" type="text" name="Nachrichtung"></textarea>
-                        </div>
-                        <div class="col-sm-12">
-                           <button class="send">Send</button>
-                        </div>
-                     </div>
-                  </form>
-               </div>
-            </div>
+             <div class="row">
+                 <div class="col-md-6 offset-md-3 ">
+                     <form id="contact-form" class="main_form">
+                         <div class="row">
+                             <div class="col-sm-12">
+                                 <input class="contactus" placeholder="Name" type="text" name="from_name" required>
+                             </div>
+                             <div class="col-sm-12">
+                                 <input class="contactus" placeholder="Email" type="email" name="from_email" required>
+                             </div>
+                             <div class="col-sm-12">
+                                 <input class="contactus" placeholder="Rufnummer" type="text" name="phone" required>
+                             </div>
+                             <div class="col-sm-12">
+                                 <textarea class="contactus" placeholder="Nachricht" name="message" required></textarea>
+                             </div>
+                             <div class="col-sm-12">
+                                 <button type="submit" class="send">Send</button>
+                             </div>
+                         </div>
+                     </form>
+                 </div>
+             </div>
          </div>
-      </div>
+     </div>
 
       <!-- end contact -->
       <!--  footer -->
@@ -344,6 +350,29 @@
       <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
       <script src="js/custom.js"></script>
       <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+      <!-- This section is for emailjs -->
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+      <script type="text/javascript">
+         (function() {
+             // https://dashboard.emailjs.com/admin/account
+             emailjs.init({
+               publicKey: "GoGfeplmvZxeWzY7v",
+             });
+         })();
+     </script>
+      <script type="text/javascript">
+         document.getElementById('contact-form').addEventListener('submit', function(event) {
+             event.preventDefault(); // prevent the form from submitting the traditional way
+ 
+             // Send the form data using EmailJS
+             emailjs.sendForm('service_mdtvhps', 'template_8wgyzvg', this)
+                 .then(function(response) {
+                     alert('Email sent successfully!');
+                 }, function(error) {
+                     alert('Failed to send email: ' + JSON.stringify(error));
+                 });
+         });
+     </script>
    </body>
 </html>
 

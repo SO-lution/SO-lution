@@ -586,7 +586,7 @@ button {
 /** contact section **/
 
 .contact {
-     padding-top: 90px;
+     padding-top: 20px;
      font-family: Poppins;
 }
 
@@ -594,7 +594,7 @@ button {
      background: #0c0f38;
      padding: 55px 55px;
      border-radius: 30px;
-     /*margin-bottom: -28%; */ 
+     margin-bottom: 10%; */ 
 }
 
 .contact .main_form .contactus {
@@ -662,7 +662,7 @@ button {
 
 .cont {
      text-align: center;
-     margin-top: 31%;
+     margin-top: 8%;
 }
 
 .cont h3 {
@@ -687,7 +687,7 @@ button {
      font-size: 17px;
      line-height: 30px;
      padding: 0 130px;
-     padding-bottom: 60px;
+     padding-bottom: 40px;
 }
 
 .copyright {
